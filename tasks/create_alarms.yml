@@ -13,22 +13,22 @@
 - include: create_memory_alarm.yml
   vars:
     rds_alarms_type: warning
-    rds_alarms_threshold: "{{ (rds_alarms_instance_class[item.DBInstanceClass].memory | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['warning_threshold'] | default(rds_alarms_warning_threshold))) }}"
+    rds_alarms_threshold: "{{ (rds_alarms_instance_class[item.DBInstanceClass].memory | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['memory_warning_threshold'] | default(rds_alarms_warning_threshold))) }}"
 
 - include: create_memory_alarm.yml
   vars:
     rds_alarms_type: critical
-    rds_alarms_threshold: "{{ (rds_alarms_instance_class[item.DBInstanceClass].memory | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['critical_threshold'] | default(rds_alarms_critical_threshold))) }}"
+    rds_alarms_threshold: "{{ (rds_alarms_instance_class[item.DBInstanceClass].memory | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['memory_critical_threshold'] | default(rds_alarms_critical_threshold))) }}"
 
 - include: create_storage_alarm.yml
   vars:
     rds_alarms_type: warning
-    rds_alarms_threshold: "{{ (item.AllocatedStorage | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['warning_threshold'] | default(rds_alarms_warning_threshold))) }}"
+    rds_alarms_threshold: "{{ (item.AllocatedStorage | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['storage_warning_threshold'] | default(rds_alarms_warning_threshold))) }}"
 
 - include: create_storage_alarm.yml
   vars:
     rds_alarms_type: critical
-    rds_alarms_threshold: "{{ (item.AllocatedStorage | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['critical_threshold'] | default(rds_alarms_critical_threshold))) }}"
+    rds_alarms_threshold: "{{ (item.AllocatedStorage | float) * 10000000 * (100 - (rds_alarms_db_instances[item.DBInstanceIdentifier]['storage_critical_threshold'] | default(rds_alarms_critical_threshold))) }}"
 
 - include: create_connections_alarm.yml
   vars:

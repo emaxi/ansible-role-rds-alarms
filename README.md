@@ -75,6 +75,10 @@ rds_alarms_db_instances:
     alarm_action_list: ["arn:aws:sns:us-east-1:9783248248:MYALARM"]
     critical_threshold: 90 # Optional
     warning_threshold: 75 # Optional
+    storage_critical_threshold: 90 # Optional
+    storage_warning_threshold: 75 # Optional
+    memory_critical_threshold: 90 # Optional
+    memory_warning_threshold: 75 # Optional
     credit_warning_threshold: 30 # Optional
     credit_critical_threshold: 15 # Optional
     replica_lag_threshold: 1800 # Required Only for replicas. Units seconds
