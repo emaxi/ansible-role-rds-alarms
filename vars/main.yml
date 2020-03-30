@@ -19,6 +19,12 @@ rds_alarms_instance_class:
     memory: 8
     ebs: "450 Mbps"
     network: Moderate
+  db.m5.large:
+    cpu: 2
+    ecu: 10
+    memory: 8
+    ebs: "3500 Mbps"
+    network: 10 Gbps
   db.m4.xlarge:
     cpu: 4
     ecu: 13
